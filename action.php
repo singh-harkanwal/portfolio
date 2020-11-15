@@ -1,6 +1,6 @@
       <?PHP
       if(isset($_POST['submit']) && $_POST['phone'] == ''){
-        $to = "";
+        $to = "notinservice@email.com";
         $from = $_POST['Email'];
         $name = $_POST['Name'];
         $subject = "Form submission";
@@ -10,8 +10,13 @@
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         // More headers
-        mail($to,$subject,$message,$headers);
+        $flag = false;    
+        $flag = mail($to,$subject,$message,$headers);
         
-        echo "The email has been sent, I will contact you soon."
+        if($flag) {
+            echo "The email has been sent, I will contact you soon."
+        } else {
+            echo "Opps! something happened wrong, please resubmit the form";
+        }
       }
       ?>
