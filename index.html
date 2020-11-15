@@ -178,22 +178,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container w3-dark-grey w3-padding-32 w3-padding-large" id="contact">
     <div class="w3-content" style="max-width:600px">
       <h3 class="w3-center"><b>Contact Me</b></h3>
-      <?PHP
-      if(isset($_POST['submit']) && $_POST['phone'] == ''){
-        $to = "Kanwal.engineer@gmail.com";
-        $from = $_POST['Email'];
-        $name = $_POST['Name'];
-        $subject = "Form submission";
-        $message = $name . " wrote the following:" . "\n\n" . $_POST['Message'] . "From" . $from;
 
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-        // More headers
-        mail($to,$subject,$message,$headers);
-      }
-      ?>
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" target="_blank" method="post">
+      <form action="/action.php" target="_blank" method="post">
         <div class="w3-section">
           <label>Name</label>
           <input class="w3-input w3-border" type="text" name="Name" required>
